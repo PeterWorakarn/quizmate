@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Register
+{% endblock %}
+
+{% block page_content %}
+<div class="row">
+  <div class="col-md"></div>
+  <div class="col-md-4">
+    <div>{% include 'includes/_messages.html' %}</div>
+    <form action="{{url_for('register')}}" method="POST" class="card">
+      <div class="card-body">
+          <div class="mb-2"><h1 class="display-6">Register</h1></div>
+        <div class="mb-2"> <label for="name">Username</label><input class="form-control" type="text" name="username"
+            id="username" pattern="[A-Za-z]+" required title="cannot have whitespace in username"></div>
+        <div class="mb-2"><label for="email">Email</label><input class="form-control" type="email" name="email"
+            id="email"> </div>
+        <div class="mb-2"><label for="password">Password</label><input class="form-control" type="password"
+            name="password" id="password"> </div>
+        <div class="mb-2"><label for="confirm">Confirm password</label><input class="form-control" type="password"
+            name="confirm" id="confirm"> </div>
+        <div class="pt-3"></div>
+        <button type="submit" class="btn btn-primary btn-block">Register</button>
+      </div>
+    </form>
+  </div>
+  <div class="col-md"></div>
+</div>
+
+<script>
+  // check confirm password
+  var password = document.getElementById("password"),
+    confirm_password = document.getElementById("confirm");
+
+  function validatePassword() {
+    if (password.value != confirm_password.value) {
+      confirm_password.setCustomValidity("Passwords Don't Match");
+    } else {
+      confirm_password.setCustomValidity('');
+    }
+  }
+
+  password.onchange = validatePassword;
+  confirm_password.onkeyup = validatePassword;
+</script>
+{% endblock %}

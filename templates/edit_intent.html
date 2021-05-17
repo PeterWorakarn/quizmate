@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}
+Edit answer tag
+{% endblock %}
+
+{% block page_content %}
+<!-- Need to edit intent in another page -->
+<div class="row">
+    <section class="col-md card">
+        <div class="card-body">
+                <p class="lead">Text: {{text}}</p>
+                <div>
+                    <div class="secondary_button" style="display: none;">{{intent}}</div>
+                </div>
+                <p class="lead">*Change tag again until it change.</p>
+                <form action="{{url_for('change_intent')}}" method="POST" >
+                    
+                        <label for="text"></label>
+                        <input type="text" name="text" value="{{text}}" style="display: none;">
+                            <select name="new_intent" class="btn btn-dark dropdown-toggle mb-2" id="dropdownMenu2"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" required>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                    <option style="color:white" selected disabled value="">tag</option>
+                                    <option style="color:white" class="dropdown-item" value="false fact">false fact</option>
+                                    <option style="color:white" class="dropdown-item" value="too broad">too broad</option>
+                                    <option style="color:white" class="dropdown-item" value="irrelevant">irrelevant</option>
+                                    <option style="color:white" class="dropdown-item" value="fraud">fraud</option>
+                                    <option style="color:white" class="dropdown-item" value="correct">correct</option>
+                                </div>
+                            </select>
+                            <button type="submit" class="btn btn-primary mb-2">Change intent</button>
+                        
+                 
+                </form>
+        </div>
+    </section>
+</div>
+
+        {% endblock %}

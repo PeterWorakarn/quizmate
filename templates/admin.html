@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}
+Admin
+{% endblock %}
+
+{% block page_content %}
+<h1 class="display-4 mb-2">Database info.</h1>
+<table class="table table-hover bg-white">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">Email</th>
+            <th scope="col">Question</th>
+            <th scope="col">Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for each in data %}
+        <tr>
+            <td  scope="row">{{each.id}}</td>
+            <td>{{each.email}}</td>
+            <td>{{each.question}}</td>
+            {% if count_answer_all[each.username] == 0 %}
+            <td>just register</td>
+            {% elif count_answer_all[each.username] == 1 %}
+            <td>no response</td>
+            {% else %}
+            <td>{{count_answer_all[each.username]}} response</td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

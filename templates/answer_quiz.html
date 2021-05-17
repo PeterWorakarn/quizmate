@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}
+Quiz
+{% endblock %}
+
+{% block page_content %}
+
+<div class="row">
+    <div class="col-md-6">
+        <img class="image" style="width: 100%;" src="{{ url_for('static', filename='image/experience_undraw.svg' ) }}" alt="image-decoration">
+    </div>
+    <div class="col-md-6">
+        <form action="{{url_for('answer_quiz')}}" method="POST" class="card">
+            <div class="card-body">
+                <div class="mb-2"> <p class="lead">{{question}}</p></div>
+                <div class="row">
+                    <div class="mb-2 col-md-6">
+                        <label for="name">
+                            Name
+                        </label>
+                        <input class="form-control" type="text" name="name" placeholder=" " required>
+                    </div>
+
+                    <div class="mb-2 col-md-6">
+                        <label for="surname">
+                            Surname
+                        </label>
+                        <input class="form-control" type="text" name="surname" placeholder=" " required>
+                    </div>
+                </div>
+                <div style="display: none;">
+                    <input type="text" value="{{model_name}}" name="model_name">
+                </div>
+
+                <div class="mb-2">
+                    <label for="answer_response">
+                        Answer
+                    </label>
+                    <textarea class="form-control" name="answer_response" id="answer_response" cols="40" rows="2"
+                        placeholder="Type answer at here."></textarea>
+                </div>
+                <div class="pt-3"></div> 
+                <button type="submit" class="btn btn-primary btn-block">Send answer</button>
+
+            </div>
+
+        </form>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,32 @@
+<script>
+    $(document).ready(function () {
+        $("#reload").on("submit", function () {
+            $("#pageloader").attr("style", "visibility: visible;opacity:1").fadeIn("slow");
+        }); //submit
+    }); //document ready
+</script>
+<style>
+    #pageloader {
+        background: rgba(255, 255, 255, 0.8);
+        visibility: hidden;
+        opacity: 0;
+        height: 100%;
+        position: fixed;
+        width: 100%;
+        z-index: 9999;
+    }
+
+    #pageloader img {
+        left: 50%;
+        margin-left: -32px;
+        margin-top: -32px;
+        position: absolute;
+        top: 50%;
+    }
+</style>
+
+
+<div id="pageloader">
+    <img src="http://cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.16.1/images/loader-large.gif"
+        alt="processing..." />
+</div>

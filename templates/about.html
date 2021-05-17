@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}
+About
+{% endblock %}
+
+{% block page_content %}
+<div class="row">
+<div class="col-md-6">
+    <div class="card">
+        <div class="card-body">
+            <div class="mb-2">
+                <h1 class="display-4">quizMate</h1>
+            </div>
+            <div class="mb-2">
+                <p class="lead">quizMate aim to improve teaching capacity by offer a service
+                    to evaluate short-answer quiz.</p>
+            </div>
+            <div class="mb-2">
+
+                <small>for any suggestion please contact me at <u>worakarn.oun@gmail.com</u> or 097-132-0225 </small>
+            </div>
+            <div class="pt-3"></div>
+        </div>
+    </div>
+</div>
+<div class="col-md-6">
+    <div class="pt-5"></div>
+    <img class="image" style="width:100%;" src="{{ url_for('static', filename='image/quiz_undraw.svg' ) }}" alt="Hero_image">
+</div>
+</div>
+{% endblock %}

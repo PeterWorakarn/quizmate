@@ -1,0 +1,9 @@
+flask
+flask-login
+flask-sqlalchemy
+flask-bootstrap
+passlib
+spacy
+rasa_nlu 
+sklearn_crfsuite
+botocore

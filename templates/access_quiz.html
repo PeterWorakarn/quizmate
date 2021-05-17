@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}
+Access quiz
+{% endblock %}
+
+{% block page_content %}
+<div class="row">
+    <div class="col-md"></div>
+    <div class="col-md-4">
+        <div>{% include 'includes/_messages.html' %}</div>
+        <form action="{{url_for('access_quiz')}}" method="POST" class="card">
+            <div class="card-body">
+                <div class="mb-2"><h1 class="display-6"> Access quiz</h1></div>
+                <div class="mb-2">
+                    <label for="model_name">
+                       <p class="lead"> Type access code to access quiz</p>
+                    </label>
+                    <input class="form-control" type="text" name="model_name" id="model_name" required>
+                </div>  
+                <div class="pt-3"></div> 
+                <button type="submit" class="btn btn-primary btn-block">Access quiz</button>         
+            </div>
+        </form>
+    </div>
+    <div class="col-md"></div>
+</div>
+
+{% endblock %}

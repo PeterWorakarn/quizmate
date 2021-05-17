@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}
+Evaluation board
+{% endblock %}
+
+{% block page_content %}
+<div class="row">
+  <section class="col-md card">
+    <div class="card-body">
+        <div class="media">
+            <div class="align-self-top mr-5">
+              <!-- ด้านเสริม margin-right 1rem-->
+              <h1 class="display-6"><strong>{{info['percentage']}}</strong></h1>
+            </div>
+          
+            <div class="media-body mt-0">
+              <!-- หลัก -->
+              <h3>{{info['name']}}</h3>
+              <p class="lead">{{info['answer']}}</p>
+              <div class="row container pt-3">
+                <button class="btn btn-warning mb-2">{{info['intent']}}</button>
+                <div class="pr-2"></div>
+                <a href="/edit/{{info['answer']}}/{{info['intent']}}/{{id}}">
+                  <button class="btn btn mb-2">Edit tag</button>
+                </a>
+              </div>
+            </div>
+          </div>
+    </div>
+  </section>
+
+</div>
+
+{% endblock %}

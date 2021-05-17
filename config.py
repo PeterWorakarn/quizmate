@@ -1,0 +1,5 @@
+DEBUG = True
+SQLALCHEMY_COMMIT_ON_TEARDOWN = False 
+SQLALCHEMY_DATABASE_URI = 'sqlite:///user_management.db'
+SQLALCHEMY_TRACK_MODIFICATIONS = True
+SECRET_KEY = 'Thisissecret'

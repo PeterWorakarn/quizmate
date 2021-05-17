@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}
+Publish quiz
+{% endblock %}
+
+{% block page_content %}
+<div class="row">
+  <div class="col-md-6">
+    <img class="image" style="width: 100%;" src="{{ url_for('static', filename='image/experience_undraw.svg' ) }}" alt="image-decoration">
+  </div>
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-body">
+        <div class="mb-2">
+          <h1 class="display-6">Quiz was created</h1>
+          <p class="lead">Now, you can access the quiz by this access code.</p>
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <span class="input-group-text">ACCESS CODE</span>
+            </div>
+            <input id="access_code" name="access_code" class="form-control form-control-lg col-md-4" type="text"
+              placeholder="{{model_name}}" readonly>
+          </div>
+        </div>
+        <div class="pt-3"></div>
+        <a href="{{url_for('index')}}"><button type="button" class="btn btn-primary btn-block">Publish quiz </button></a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

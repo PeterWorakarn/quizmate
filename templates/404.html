@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}
+Page does not exist
+{% endblock %}
+
+{% block page_content %}
+<div class="bg-white">
+    <div class="mb-2"><h1 class="display-6">Page does not exist :(</h1></div> 
+<div class="mb-2"><p class="lead">This page does not exist. Try the link below.</p></div>
+<a href="{{url_for('index')}}" class="mb-2"><button class="btn btn-outline">Home</button></a>
+<a href="{{url_for('dashboard')}}" class="mb-2"><button class="btn btn-outline">Dashboard</button></a>
+<div class="pb-2"></div>
+</div>
+
+
+{% endblock %}

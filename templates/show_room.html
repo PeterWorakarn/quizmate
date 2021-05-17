@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<!--  Show only selected element -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../static/css/stylesX2.css">
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/stylesX2.css')}}">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <title>Design Gallery</title>
+</head>
+<body>
+  <!-- This is nav element -->
+  <nav>
+    <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
+      <ul>
+        <li><a href="#" class="alternative_button">Testimony</a> </li>
+        <li><a href="#" class="alternative_button">Contact us</a> </li>
+        <li><a href="#" class="secondary_button">Request demo</a></li>
+      </ul>
+  </nav>  
+
+  <div class="blue_background">
+    <div class="white_container">
+      <!-- This is type element -->
+      <h2>This is typography tier</h2>
+      <h3>show typography style.</h3>
+      <hr>
+        <section class="show_room">
+          <h1>Main Header h1</h1>
+          <h2>Title h2</h2>
+          <h3>description h3</h3>
+          <h4>paragraph h4</h4>
+          <p>P Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi venenatis lacinia augue, id viverra neque tincidunt nec. Praesent ultrices sapien ac tortor blandit viverra. Curabitur sit amet ornare diam. Phasellus quis metus diam. Sed tincidunt nulla vitae purus vehicula feugiat. Ut bibendum urna at felis lobortis, vitae hendrerit leo aliquet. Sed pharetra condimentum dolor. Cras fringilla augue quis felis cursus placerat. Vivamus efficitur at risus tristique blandit. Sed ornare laoreet efficitur. Maecenas tristique augue mi, eget scelerisque massa maximus ac. Sed vitae erat tincidunt mi sollicitudin condimentum sed ac turpis. Integer pellentesque, magna in tristique ultrices, neque nisl tristique lacus, eget ullamcorper augue quam ac lorem. Vestibulum a libero et dolor laoreet dapibus vel eget leo. Cras ut cursus nibh, nec sagittis augue. Ut molestie vulputate facilisis.</p>
+        </section>
+
+      <!-- This is button element -->
+      <h2>This is button tier</h2>
+      <h3>show button style.</h3>
+      <hr>
+        <section class="show_room">
+          <button class="cta_button">Call To Action</button>
+          <button class="secondary_button">poor button</button>
+          <button class="tag_button">Super market</button>
+          <div class="alternative_button"> << close</div> <!-- need to fix with triangle -->
+          <button class="feedback_icon"><i class="far fa-grin-wink"></i><div style="font-size: 12pt;">feedback?</div> </button>
+        </section>
+
+      <!-- This is card element -->
+      <h2>This is card UI</h2>
+      <h3>show card style.</h3>
+      <hr>
+        <section class="show_room">
+          <div class="card_container_main">
+            <h2 class="hide_text">87%</h2>
+            <h3 class="hide_text">John Maeda</h3>
+            <h4 class="hide_text">Land breeze is land contain with abcdefgh.</h4>
+            <button class="tag_button">false fact</button>
+          </div>
+          <div class="card_container_main">
+              <h2 class="hide_text">87%</h2>
+              <h3 class="hide_text">John Maeda</h3>
+              <h4 class="hide_text">Land breeze is land contain with abcdefgh.</h4>
+              <button class="tag_button">false fact</button>
+            </div>
+        </section>
+
+      <!-- This is card element -->
+      <h2>This is card UI (variation 1)</h2>
+      <h3>show card style.</h3>
+      <hr>
+        <section class="show_room">
+          <div class="card_container_2">
+            <div class="horizontal">
+              <h2>87%</h2>
+              <h3>John Maeda</h3>
+            </div>
+            <p class="show_text" >Land breeze is land contain with Tower.Lorem ipsum dosimit 
+                    Land breeze is land contain with Tower.Lorem ipsum dosimit
+                    Land breeze is land contain with Tower.Lorem ipsum dosimit
+                    Land breeze is land contain with Tower.Lorem ipsum dosimit
+                    Land breeze is land contain with Tower.Lorem ipsum dosimit
+                    Land breeze is land contain with Tower.Lorem ipsum dosimit
+                    Land breeze is land contain with Tower.Lorem ipsum dosimit
+            </p>
+            <div class="horizontal">
+              <button class="tag_button">false fact</button>
+              <a href="/edit/{{info['answer']}}/{{info['intent']}}">
+                <button class="secondary_button">Edit intent</button>
+              </a>
+            </div>
+          </div>
+        </section>
+
+      <!-- This is card element -->
+      <h2>This is card UI (variation 2)</h2>
+      <h3>show card style.</h3>
+      <hr>
+        <section class="show_room">
+            <div class="card_container_2">
+                <p class="show_text">ipsum dosimit
+                    Land breeze is land contain with Tower.Lorem ipsum dosimit
+                    Land breeze is land contain with Tower.Lorem ipsum dosimit
+                    Land breeze is land contain with Tower.Lorem ipsum dosimit
+                    Land breeze is land contain with Tower.Lorem ipsum dosimit
+                    Land breeze is land contain with Tower.Lorem ipsum dosimit
+                    Land breeze is land contain with Tower.Lorem ipsum dosimit</p>
+                <div>
+                    <div class="secondary_button" style="display: none;">false fact</div>
+                </div>
+
+                <form action="{{url_for('change_intent')}}" method="POST" class="form_input">
+                    <div class="form_input_answer">
+                        <label for="text">
+                            <h3></h3>
+                        </label>
+                        <input type="text" name="text" value="{{text}}" style="display: none;">
+
+                        <label for="new_intent">
+                            <h3>new intent</h3>
+                        </label>
+                        <div class="horizontal">
+                          <select name="new_intent" class="drop_down" required>
+                            <option value="false fact">false fact</option>
+                            <option value="too broad">too broad</option>
+                            <option value="irrelevant">irrelevant</option>
+                            <option value="fraud">fraud</option>
+                          </select>
+                          <button type="submit" class="cta_button">change intent</button>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </section>
+
+      <!-- This is form element -->
+      <h2>This is Two side form </h2>
+      <h3>show form input.</h3>
+      <hr>
+        <section class="two_side_form">
+          <div  class="image left_right_section"><img src="https://www.vappingo.com/word-blog/wp-content/uploads/2011/01/paper2.jpg" alt="image-decoration"></div>
+          <div class="form_input_answer left_right_section">
+            <form action="#" style="background-color: aqua;">
+              <label for="name"></label>
+              <h5></h5><input type="text" name="name" placeholder="Type first name and last name">
+              <label for="answer_response"></label><textarea name="answer_response" id="answer_response" cols="40"
+                  rows="5" placeholder="Type answer at here."></textarea>
+              <button type="submit" class="cta_button">Send answer</button>
+            </form>
+          </div>
+        </section>
+    </div>
+  </div>
+  <footer class="horizontal"> <!-- This is form element -->
+        <div class="left_right_section" style="background-color: chartreuse;">
+            <h2>About us</h2>
+            <p>this is me</p>
+        </div>
+        <div class="left_right_section" style="background-color: chartreuse;">
+            <h2>Contact us</h2> 
+            <p>E-mail: worakarn.oun@gmail.com</p>
+            <p>097-132-0225</p>
+            <p>XYZABCDEFG</p>
+        </div>
+  </footer>
+</body>
+</html>

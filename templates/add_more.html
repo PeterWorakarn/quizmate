@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+
+{% block title %}
+Add more answer examples
+{% endblock %}
+
+{% block page_content %}
+<div>{% include 'includes/_messages.html' %}</div>
+<!-- Need to edit the script when add another intent option -->
+<div class="row">
+    <div class="col-md-5">
+        <img class="image" style="width: 100%;" src="{{ url_for('static', filename='image/experience_undraw.svg' ) }}" alt="image-decoration">
+    </div>
+    <div class="col-md-7">
+        <form action="{{url_for('add_more')}}" method="POST" class="card">
+            <div class="card-body">
+                <h1 class="mb-2 display-6 text-center">Add answer examples</h1>
+                <p class="lead">*We recommended you to add at least 10 answer examples 
+                    for better result , however you can add more next time.</p>
+                
+                <div class="mb-4">
+                    <div class="pt-3"></div>
+                    <input type="hidden" name="contacts" id="contacts" value="1">
+
+                    <div class="form-contacts-container">
+            
+                        <div class="form-contact row container" id="form-contact-1">
+                            <input class="form-control mb-2 col-md-8 mr-2" type="text" name="text-1" id="text-1" placeholder="Type answer example" required>
+                            <select name="intent-1" id="intent-1" class="mb-2 col-md" required>
+                                    <option selected disabled value="">Tag</option>
+                                    <option value="false fact">false fact</option>
+                                    <option value="too broad">too broad</option>
+                                    <option value="irrelevant">irrelevant</option>
+                                    <option value="fraud">fraud</option>
+                                    <option value="correct">correct</option>
+                            </select>
+                        </div>
+            
+                        <!-- We'll be adding additional inputs here -->
+            
+                    </div>
+            
+                    <div class="form-contacts-add">
+                        <input type="button" class="btn btn mb-2" value="Add More" id="add-fields">
+                    </div>
+                </div>
+                
+                <div class="pt-3"></div>
+                <button type="submit" class="btn btn-primary btn-block">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script type="text/javascript"> // FUNCTION ADD INTENT
+    var total = 1; // Our default for how many contacts we have
+
+
+    $(document).on('click', '#add-fields', function () {
+
+        var addBlockId = total = total + 1;
+
+        var addBlock = document.createElement('div');
+        $(addBlock).addClass('form-contact row container');
+        $(addBlock).attr('id', 'form-contact-' + addBlockId);
+
+        var inputName = document.createElement('input');
+        $(inputName).attr('type', 'text');
+        $(inputName).attr('name', 'text-' + addBlockId);
+        $(inputName).attr('id', 'text-' + addBlockId);
+        $(inputName).attr('placeholder', 'Type answer example');
+        $(inputName).attr('class', 'form-control mb-2 col-md-8 mr-2');
+        $(inputName).appendTo($(addBlock));
+
+        var inputIntent = document.createElement('select');
+        $(inputIntent).attr('name', 'intent-' + addBlockId);
+        $(inputIntent).attr('id', 'intent-' + addBlockId);
+        $(inputIntent).attr('class', 'mb-2 col-md');
+        var optionIntent1 = document.createElement('option');
+        var optionIntent2 = document.createElement('option');
+        var optionIntent3 = document.createElement('option');
+        var optionIntent4 = document.createElement('option');
+        var optionIntent5 = document.createElement('option');
+
+        $(optionIntent1).prepend('false fact');
+        $(optionIntent1).attr('value', 'false fact');
+        
+        $(optionIntent2).prepend('too broad');
+        $(optionIntent2).attr('value', 'too broad');
+
+        $(optionIntent3).prepend('irrelevant');
+        $(optionIntent3).attr('value', 'irrelevant');
+
+        $(optionIntent4).prepend('fraud');
+        $(optionIntent4).attr('value', 'fraud');
+
+        $(optionIntent5).prepend('correct');
+        $(optionIntent5).attr('value', 'correct');
+        $(inputIntent).prepend(optionIntent1 ,optionIntent2 ,optionIntent3 ,optionIntent4 ,optionIntent5  );
+        $(inputIntent).appendTo($(addBlock));
+
+        $(addBlock).appendTo($('.form-contacts-container'));
+        $('#contacts').val(total);
+
+    });
+</script>
+{% endblock %}

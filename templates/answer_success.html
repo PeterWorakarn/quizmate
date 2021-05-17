@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}
+We receive your answer
+{% endblock %}
+
+{% block page_content %}
+<div class="row">
+  <div class="col-md-6">
+    <img class="image" style="width: 100%;" src="{{ url_for('static', filename='image/experience_undraw.svg' ) }}" alt="image-decoration">
+  </div>
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-body">
+        <div class="mb-2">
+          <h1 class="display-6">We receive your answer!</h1>
+          <p class="lead">Now, you can enjoy your day without worries.</p>
+        </div>
+        <div class="pt-3"></div>
+        <a href="{{url_for('index')}}"><button type="button" class="btn btn-primary btn-block"> OK </button></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

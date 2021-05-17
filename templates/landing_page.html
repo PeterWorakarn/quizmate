@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9BB3LJ0RQY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-9BB3LJ0RQY');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <!-- SEO tag -->
+  <title>Quiz evaluation for smart educator | quizMate</title>
+  <meta name="Description"
+    content="quizMate aim to improve teaching capacity by offer a service to evaluate short-answer quiz.">
+  <meta name="Keywords" content="quiz, learning, evaluation">
+  
+  <!-- Bootstrap tag -->
+  <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+  <link rel="stylesheet" media="screen" type="text/css" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+  </script>
+
+  <!-- Favicon part (web and mobile) -->
+  <link rel="apple-touch-icon" sizes="57x57" href="{{url_for('static',filename='image/apple-icon-57x57.png')}}">
+  <link rel="apple-touch-icon" sizes="60x60" href="{{url_for('static',filename='image/apple-icon-60x60.png')}}">
+  <link rel="apple-touch-icon" sizes="72x72" href="{{url_for('static',filename='image/apple-icon-72x72.png')}}">
+  <link rel="apple-touch-icon" sizes="76x76" href="{{url_for('static',filename='image/apple-icon-76x76.png')}}">
+  <link rel="apple-touch-icon" sizes="114x114" href="{{url_for('static',filename='image/apple-icon-114x114.png')}}">
+  <link rel="apple-touch-icon" sizes="120x120" href="{{url_for('static',filename='image/apple-icon-120x120.png')}}">
+  <link rel="apple-touch-icon" sizes="144x144" href="{{url_for('static',filename='image/apple-icon-144x144.png')}}">
+  <link rel="apple-touch-icon" sizes="152x152" href="{{url_for('static',filename='image/apple-icon-152x152.png')}}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{url_for('static',filename='image/apple-icon-180x180.png')}}">
+  <link rel="icon" type="image/png" sizes="192x192"
+    href="{{url_for('static',filename='image/android-icon-192x192.png')}}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{url_for('static',filename='image/favicon-32x32.png')}}">
+  <link rel="icon" type="image/png" sizes="96x96" href="{{url_for('static',filename='image/favicon-96x96.png')}}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{url_for('static',filename='image/favicon-16x16.png')}}">
+  <link rel="manifest" href="{{url_for('static',filename='image/manifest.json')}}">
+</head>
+
+<body class="bg-dark" id="reload">
+  <style>
+    @media screen and (max-width:768px) {
+      .image {
+        display: none;
+      }
+    }
+  </style>
+  <div>{% include 'includes/_reload.html' %}</div>
+  <div>{% include 'includes/_navigation.html' %}</div>
+  <main class=" container">
+    <div class="row">
+      <div class="col-md-6 bg-white">
+        <div class="pt-5"></div>
+        <div class="pt-5"></div>
+        <h1 class="display-4">quizMate</h1>
+        <p class="lead">A better way to create quiz, get answer and detect common mistake with less worries.</p>
+        <div class="pt-5"></div>
+        <div class="row col-md">
+          {% if current_user.is_authenticated and current_user.question == None %}
+          <a href="{{url_for('create_quiz')}}"><button class="btn btn-primary">Create quiz now</button></a>
+          {% elif current_user.is_authenticated and current_user.question != None %}
+          <form action="{{url_for('dashboard')}}">
+            <button type="submit" class="btn btn-primary">Dashboard</button>
+          </form>
+          <!-- <a href="{{url_for('overall_prediction')}}"><button class="btn btn-primary">See result</button></a> -->
+          {% else %}
+          <a href="{{url_for('register')}}"><button class="btn btn-primary">Try now</button></a>
+          {% endif %}
+          <div class="pr-3"></div>
+          <a href="{{url_for('access_quiz')}}"><button class="btn btn">Take a quiz</button></a>
+          <div class="mb-5"></div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="pt-5"></div>
+        <div class="pt-5"></div>
+        <img class="image" style="width:100%;" src="{{ url_for('static', filename='image/quiz_undraw.svg' ) }}"
+          alt="Hero_image">
+      </div>
+
+    </div>
+    <div class="mb-5"></div>
+
+  </main>
+  <!-- <section class="container bg-white mb-2">
+    <div class="row mb-2">
+      <div class="col-md text-center">
+        <div class="pt-5"></div>
+        <h1 class="dislay-4 mb-2">Features</h1> <br>
+        <p class="lead"></p>
+      </div>
+    </div>
+    <div class="row container">
+      <div class="col-md">
+        <blockquote class="blockquote mr-3 text-left">
+          <p class="mb-0">this is blockquote for quote this is blockquote for quote this is blockquote for quote</p>
+          <footer class="blockquote-footer">Educator </footer>
+        </blockquote>
+      </div>
+      <div class="col-md">
+        <blockquote class="blockquote mr-3 text-left">
+          <p class="mb-0">this is blockquote for quote this is blockquote for quote this is blockquote for quote</p>
+          <footer class="blockquote-footer">Online instructor</footer>
+        </blockquote>
+      </div>
+      <div class="col-md">
+        <blockquote class="blockquote mr-3 text-left">
+          <p class="mb-0">this is blockquote for quote this is blockquote for quote this is blockquote for quote</p>
+          <footer class="blockquote-footer">Facilitator </footer>
+        </blockquote>
+      </div>
+    </div>
+  </section> -->
+
+  <div class="mb-5"></div>
+  <section class="container bg-white mb-2">
+    <div class="row mb-2">
+      <div class="col-md text-center">
+        <div class="pt-5"></div>
+        <h1 class="dislay-4 mb-2">How it works</h1> <br>
+      </div>
+
+    </div>
+    <div class="container row ">
+      <div class="col-md-3 text-left">
+        <figure class="figure">
+          <img style="width: 100%;" src="{{ url_for('static', filename='image/create_quiz.PNG' ) }}"
+            class="img-fluid rounded" alt="Create quiz.">
+          <figcaption class="figure-caption">1. Create quiz</figcaption>
+        </figure>
+      </div>
+      <div class="col-md-3 text-left">
+        <figure class="figure">
+          <img style="width: 100%;" src="{{ url_for('static', filename='image/add_answer.png' ) }}"
+            class="img-fluid rounded" alt="Add answer">
+          <figcaption class="figure-caption">2. Add answer example</figcaption>
+        </figure>
+      </div>
+      <div class="col-md-3 text-left">
+        <figure class="figure">
+          <img style="width: 100%;" src="{{ url_for('static', filename='image/publish_quiz.png' ) }}"
+            class="img-fluid rounded" alt="Publish quiz">
+          <figcaption class="figure-caption">3. Publish quiz</figcaption>
+        </figure>
+      </div>
+      <div class="col-md-3 text-left">
+        <figure class="figure">
+          <img style="width: 100%;" src="{{ url_for('static', filename='image/see_evaluation_Y.png') }}"
+            class="img-fluid rounded" alt="See evaluation">
+          <figcaption class="figure-caption">4. See evaluation</figcaption>
+        </figure>
+      </div>
+    </div>
+
+  </section>
+
+  <div>{% include 'includes/_footer.html' %}</div>
+  <div>{% include 'includes/_overlay-bg.html' %}</div>
+
+
+  <!-- <div style="position: absolute;bottom:0;
+  width:100%;height:100%;background:#000;
+  z-index: -1;transform: skewX(-20deg);
+  "></div> -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+  </script>
+
+</body>
+
+</html>

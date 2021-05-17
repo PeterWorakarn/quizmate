@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}
+Evaluation board
+{% endblock %}
+
+{% block page_content %}
+<div>{% include 'includes/_messages.html' %}</div>
+<div class="row">
+
+  <div class="col-md card">
+
+    <div class="card-body">
+      <a href="{{url_for('export_file')}}" target="_top" class="float-right"> <button type="button"
+          class="btn btn-primary">Export file</button>
+      </a>
+      <h1 class="mb-2 display-6">Evaluation board</h1>
+      <small class="mb-2">You can edit answer tags, if it wrong by click it.</small>
+      <div class="pt-2"></div>
+      <section>
+        {% for id in data %}
+        {% if id != "1" %}
+
+
+        <a href="/view/{{id}}" class="card mb-2">
+          <div class="card-body">
+            <!-- hide sample answer -->
+            <div class="row container text-dark">
+              <div class="col-md-3">
+                <h2 class="hide_text"><strong>{{data[id]['percentage']}}</strong> </h2>
+              </div>
+              <div class="col-md-3">
+                <h3 class="hide_text">{{data[id]['name']}}</h3>
+              </div>
+              <div class="col-md-3">
+                <h4 class="hide_text">{{data[id]['answer']}}</h4>
+              </div>
+              <div class="col-md-3"><button class="btn btn-warning btn-block">{{data[id]['intent']}}</button></div>
+            </div>
+          </div>
+        </a>
+
+
+        {% endif %}
+        {% endfor %}
+      </section>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

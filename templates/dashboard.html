@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block page_content %}
+<div class="row">
+    <div class="col-md-6">{% include 'includes/_messages.html' %}</div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <!-- Head section -->
+        <div class="mb-2 text-center">
+            <h1 class="display-6">{{current_user.username}}'s dashboard</h1>
+        </div> <br>
+
+        <!-- Main content section -->
+        {% if current_user.question != None %}
+        <div class="mb-2">
+            <h1 class="lead">CURRENT QUIZ: {{current_user.question}} </h1>
+        </div> <br>
+        <div class="input-group mb-2">
+            <div class="input-group-prepend">
+                <span class="input-group-text">ACCESS CODE</span>
+            </div>
+            <input id="access_code" name="access_code" class="form-control form-control-lg col-md-4" type="text"
+                placeholder="{{current_user.model_name}}" readonly>
+        </div>
+        {% else %}
+        <p class="lead">
+            Welcome, newcomer.
+            You can create quiz by click Create quiz.
+            (Your plan can create just one quiz project)
+        </p>
+
+        {% endif %}
+
+
+        <div class="pt-3"></div>
+        <!-- For user who already create quiz -->
+        <div class="row container">
+            {% if current_user.question != None %}
+            {% if count_answer >= 2 %}
+            <!-- <a href="{{url_for('overall_prediction')}}" class="mb-2">
+                    <button type="button" class="btn btn-primary">
+                        Now you have responses <span class="badge badge-light">{{count_answer-1}} </span>
+                    </button>
+                </a> -->
+            <form action="{{url_for('overall_prediction')}}" class="mb-2">
+                <button type="submit" class="btn btn-primary">
+                    See evaluation <span class="badge badge-light">{{count_answer-1}} </span>
+                </button>
+            </form>
+            <div class="pr-3"></div>
+            {% else %}
+            <button type="button" class="btn btn-secondary mb-2" disabled>
+                You haven't received any response yet <span class="badge badge-light"> 0 </span>
+            </button>
+
+            <div class="pr-3"></div>
+            {% endif %}
+            {% endif %}
+
+            <!-- For add more intent -->
+            {% if current_user.question != None %}
+            <a href="{{url_for('add_more')}}" class="mb-2"><button class="btn btn">Add answer examples</button> </a>
+            {% endif %}
+
+            <!-- For user who not create quiz yet -->
+            {% if current_user.question == None %}
+            <a href="{{url_for('create_quiz')}}" class="mb-2"><button class="btn btn-primary">Create quiz</button> </a>
+            {% endif %}
+
+
+            <div class="mb-3"></div>
+            <!-- <a href="#" class="mb-2"><button class="btn btn">Need help?</button> </a> -->
+        </div>
+    </div>
+</div>
+
+{% endblock %}
