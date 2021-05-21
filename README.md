@@ -12,4 +12,5 @@ quizmate เป็น website application ที่ช่วยในการ�
 <br>
 
 ![Banner](https://github.com/PeterWorakarn/quizmate/blob/master/quizMate-cover.PNG)
+<img alt="quizMate" src="https://github.com/PeterWorakarn/quizmate/blob/master/quizMate-project.PNG"/>
 
